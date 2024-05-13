@@ -1,0 +1,64 @@
+/* CSS Flex for horizontal placement of navigation links */
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Location selector to remove bullets from navigation links */
+  nav ul {
+    list-style-type: none;
+  }
+  
+  /* Border, margin, and padding for header, main, sidebar, and footer */
+  header, main, aside, footer {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  /* CSS Grid layout for the page */
+  body {
+    display: grid;
+    grid-template-columns: 1fr 4fr; /* Sidebar takes 1 part, Main content takes 4 parts */
+    grid-template-rows: auto 1fr auto; /* Header, Main content, Footer */
+    height: 100vh;
+  }
+  
+  header {
+    grid-column: 1 / -1; /* Header spans across all columns */
+  }
+  
+  aside {
+    grid-column: 1; /* Sidebar on the left */
+    grid-row: 2; /* Below the header */
+  }
+  
+  main {
+    grid-column: 2; /* Main content on the right */
+    grid-row: 2; /* Below the header */
+  }
+  
+  footer {
+    grid-column: 1 / -1; /* Footer spans across all columns */
+  }
+  
+  /* Responsive layout for screens less than 500px wide */
+  @media screen and (max-width: 500px) {
+    body {
+      grid-template-columns: 1fr; /* Single column layout */
+      grid-template-rows: auto auto 1fr auto; /* Header, Navigation, Main content, Footer */
+    }
+  
+    .nav-links {
+      flex-direction: column; /* Links vertically stacked */
+    }
+  
+    aside {
+      grid-column: 1; /* Sidebar moves below the main */
+      grid-row: 3; /* Above the footer */
+    }
+  
+    footer {
+      grid-row: 4; /* Footer at the bottom */
+    }
+  }
