@@ -1,71 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a Vehicle</title>
-    <link rel="stylesheet" href="mystyles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reg Database Tool</title>
+<link rel="stylesheet" href="mystyles.css">
 </head>
 <body id="container">
-    <header>
-        <h1>&emsp; Add a Vehicle</h1>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">People search</a>&emsp;<a href="vehicle-search.html">Vehicle search</a>&emsp;<a href="add-vehicle.html">Add a vehicle</a></li>
-            </ul>
-        </nav>
-    </header>
+<script type="module" src="addVehicle.js"></script>
+
+<header>
+    <h1>Add a Vehicle</h1>
+    <ul class="navbar">
+        <li><a href="index.html">People Search</a></li>
+        <li><a href="vehicle-search.html">Vehicle search</a></li>
+        <li>Add a vehicle</li>
+    </ul>
+</header>
+
+    <aside>
+        <img width=100 height = 100 src="car.webp" alt="blue car"></img>
+    </aside>
+
     <main>
-        <form id="add-vehicle-form">
-            <label for="rego">Registration Number:</label>
-            <input type="text" id="rego" name="rego">
-            <hr color="white">
-            <label for="make">Make:</label>
-            <input type="text" id="make" name="make">
-            <hr color="white">
-            <label for="model">Model:</label>
-            <input type="text" id="model" name="model">
-            <hr color="white">
-            <label for="colour">Colour:</label>
-            <input type="text" id="colour" name="colour">
-            <hr color="white">
-            <label for="owner">Owner:</label>
-            <input type="text" id="owner" name="owner">
-            <hr color="white">
-            <button type="submit">Add</button>
+        <form method="post" id="addVehicleForm">
+            <label for="rego">License plate number </label>
+            <input type="text" id="rego" name="rego"><br><br>
+
+            <label for="make">Make </label>
+            <input type="text" id="make" name="make"><br><br>
+
+            <label for="model">Model </label>
+            <input type="text" id="model" name="model"><br><br>
+
+            <label for="colour">Colour </label>
+            <input type="text" id="colour" name="colour"><br><br>
+
+            <label for="owner">Owner name </label>
+            <input type="text" id="owner" name="owner"><br><br>
+
+            <input type="Submit" id="Submit" value='Add vehicle', name='Add vehicle'></button><br><br>
+
         </form>
-        <div id="owner-details" style="display: none;">
-            <h2>Owner Details</h2>
-            <form id="add-owner-form">
-                <label for="personid">Person ID:</label>
-                <input type="text" id="personid" name="personid">
-                <hr color="white">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
-                <hr color="white">
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address">
-                <hr color="white">
-                <label for="dob">Date of Birth:</label>
-                <input type="text" id="dob" name="dob">
-                <hr color="white">
-                <label for="license">License Number:</label>
-                <input type="text" id="license" name="license">
-                <hr color="white">
-                <label for="expire">License Expiry Date:</label>
-                <input type="text" id="expire" name="expire">
-                <hr color="white">
-                <button type="submit">Add owner</button>
-            </form>
-        </div>
+
+
+        <div class="showData", id="results"></div>
         <div id="message"></div>
     </main>
-    <aside>
-        <img src="add-vehicle.jpg" alt="add image">
-    </aside>
-    <footer>
-        <p>&copy; psylp4_comp1004_cw2</p>
-    </footer>
-    <script src="script.js" type="module"></script>
+
+
+</div>
+
+
+<footer>
+    <p>PSYMM14 COMP1004 CW</p>
+</footer>
+
+
+</body>
+    
+
 </body>
 </html>
