@@ -1,13 +1,12 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-const supabaseUrl = 'https://iiujqurolyotzbvlfwqt.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpdWpxdXJvbHlvdHpidmxmd3F0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQyMzQ4MDAsImV4cCI6MjAyOTgxMDgwMH0.hAIUU1sEOjMHlDpp2bcvEL5UkdeoV-hn_FyF2nVptA8';
+const supabaseUrl = 'https://wmjaronslrkqxpkgqpbd.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtamFyb25zbHJrcXhwa2dxcGJkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNTY3OTY0MiwiZXhwIjoyMDMxMjU1NjQyfQ.R-Zx1Y1cqvCWquZatUgyxbgh4QoOzc7dgwIQ_j1NCF0'
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 
  
-async function fetchData(name,num) {
-
+async function getdata(name,num) {
     if(!name){
         const { data, error } = await supabase
         .from('People')
@@ -34,19 +33,25 @@ async function fetchData(name,num) {
         return data;
     }
 }
-
-const out = document.getElementById("results");
+// if(!name||!personid||!address||!dob||!license||!expiredate){
+//     document.getElementById("message").innerHTML="<div>Error</div>";
+//     return;
+// }
+// if(await setOwnerData(personid,name,address,dob,license,expiredate)==false) return;
+// setVehicleData(reg,make,model,colour,personid);
+// });
+const output = document.getElementById("results");
 const message = document.getElementById("message");
-async function updatePage(dName, dLNum){
-    const pData=await fetchData(dName,dLNum);
-    if(pData[0]){
-        for(let i=0; i<pData.length; i++){
+async function update(name, number){
+    const persondata=await getdata(name,number);
+    if(persondata[0]){
+        for(let i=0; i<persondata.length; i++){
             if(i==0){
-                out.innerHTML = "<div>"+"Name: "+pData[i].Name + "<br>Address: "+pData[i].Address + "<br>Date of Birth: "+pData[i].DOB + "<br>License Number: "+pData[i].LicenseNumber + "<br>Expiry Date: "+pData[i].ExpiryDate + "<br><br>"+"</div>";
+                output.innerHTML = "<div>"+"Name: "+persondata[i].Name + "<br>Address: "+persondata[i].Address + "<br>Date of Birth: "+persondata[i].DOB + "<br>License Number: "+persondata[i].LicenseNumber + "<br>Expiry Date: "+persondata[i].ExpiryDate + "<br><br>"+"</div>";
                 message.innerHTML = '<div>Search successful</div>';
             }
             else
-                out.innerHTML += "<div>"+"Name: "+pData[i].Name + "<br>Address: "+pData[i].Address + "<br>Date of Birth: "+pData[i].DOB + "<br>License Number: "+pData[i].LicenseNumber + "<br>Expiry Date: "+pData[i].ExpiryDate + "<br><br>"+"</div>";
+            output.innerHTML += "<div>"+"Name: "+persondata[i].Name + "<br>Address: "+persondata[i].Address + "<br>Date of Birth: "+persondata[i].DOB + "<br>License Number: "+persondata[i].LicenseNumber + "<br>Expiry Date: "+persondata[i].ExpiryDate + "<br><br>"+"</div>";
     }   
     }
     else message.innerHTML = "<div>No result found</div>";
@@ -56,23 +61,23 @@ async function updatePage(dName, dLNum){
 
 
 
-document.getElementById("peopleForm").addEventListener("submit", (event) => {
+document.getElementById("people-search-form").addEventListener("submit", (event) => {
     event.preventDefault();
-    const form = document.getElementById("peopleForm")
-    const dName=form.name.value;
-    const dLNum=form.license.value; 
+    const form = document.getElementById("people-search-form")
+    const myname=form.name.value;
+    const mynum=form.license.value; 
 
-    if(!dName && !dLNum){
+    if(!myname && !mynum){
         message.innerHTML("<div>Error</div>")
         return false;
     }
 
-    if(dName && dLNum){
+    if(myname && mynum){ // Shouldnt have both
         message.innerHTML("<div>Error</div>")
         return false;
     }
-
-    updatePage(dName,dLNum);
+    // update page
+    update(myname,mynum);
 });
 
 

@@ -1,35 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle Search</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reg Database Tool</title>
+<link rel="stylesheet" href="mystyles.css">
+<script src="vehicleSearch.js" type="module"></script>
 </head>
 <body id="container">
-    <header>
-        <h1>&emsp; Vehicle Search</h1>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">People search</a>&emsp;<a href="search-vehicles.html">Vehicle search</a>&emsp;<a href="add-vehicle.html">Add a vehicle</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <form id="vehicle-search-form">
-            <label for="rego">Vehicle Registration:</label>
-            <input type="text" id="rego" name="rego">
-            <hr color="white">
-            <button type="submit">Submit</button>
-        </form>
-        <div id="results"></div>
-    </main>
+
+
+<header>
+    <h1>Vehicle Search</h1>
+
+    <ul class="navbar">
+        <li><a href="index.html">People Search</a></li>
+        <li>Vehicle search</a></li>
+        <li><a href="add-vehicle.html">Add a vehicle</a></li>
+    </ul>
+</header>
+
     <aside>
-        <img src="vehicles.jpg" alt="add image">
+        <img width=100 height = 100 src="car.webp" alt="blue car"></img>
     </aside>
-    <footer>
-        <p>&copy; psylp4_comp1004_cw2</p>
-    </footer>
-    <script src="script.js" type="module"></script>
+
+    <main>
+
+        <form method="post" id="vehicleSearchForm">
+            <label for="rego">Search by registration number </label>
+            <input type="text" id="rego" name="rego"><br><br>
+            <input type="submit" id="submit"></button><br><br>
+        </form>
+    
+
+        <div class="showData", id="results"></div>
+        
+        <div id="message"></div> 
+    </main>
+
+
+</div>
+
+
+<footer>
+    <p>PSYMM14 COMP1004 CW</p>
+</footer>
+
+
+</body>
+    
+
 </body>
 </html>

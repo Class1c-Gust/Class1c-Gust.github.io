@@ -1,62 +1,92 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-    .center{
-        text-align: center;
-    }
 
-    .container {
+body {
     display: grid;
-    grid-template-columns: 1fr 4fr; /* Sidebar takes 1 part, main content takes 4 parts */
-    grid-template-rows: auto 1fr auto; /* Header, main content, footer */
-    height: 100%;
-    grid-gap: 20px; /* Gap between grid items */
-    padding: 5px;
-    }
-
-    header, footer {
-    margin: 10px;
-    grid-column: 1 / -1; /* Span across all columns */
-    background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    padding: 10px;
-    }
-
-    header {
-    grid-row: 1; /* First row */
-    }
-
-    footer {
-    grid-row: 3; /* Third row */
-    }
-
-    .sidebar {
-        margin: 10px;
-        border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    grid-template-areas:
+    'header header header header header'
+    'aside main main main main'
+    'footer footer footer footer footer';
+    grid-template-rows: 1fr 2.9fr 0.5fr;
+    grid-template-columns: 1fr 4fr;
+  
+  }
+  
+  
+  
+  
+  header {
+  padding: 10px;
+  text-align: center;
+  border:1px solid black;
+  grid-area: header;
+  background: #0eb7e1;
+  color: rgb(223, 232, 235);
+  margin:10px;
+  }
+  main{  
+    grid-row: 100px;
+    grid-area: main;
+    border:1px solid black;
     background-color: white;
     padding: 10px;
-    }
-    .navbar {
-    margin: 10px;
-    list-style-type: none;
-    text-align: center;
+    margin:10px;
+  }
+  /* dont confuse with navbar */
+  aside{
+    background-color: #e8e1e1;
+    grid-area: aside;
+    padding: 10px;
+    margin:10px;
+    border:1px solid black;
+  }
+  
+  /* to show the data on the displat */
+  .showData {
+    background-color: white;
+    padding: 20px;
+  }
+  
+  
+  
+  .navbar {
     display:flex;
-    justify-content: space-evenly;
+    text-align: center;
     padding: 10px;
     align-items: center;
-    }
-
-    .main-content {
-        margin: 10px;
-        border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    justify-content: space-evenly;
+    background-color: #6c6d75;;
+  }
+  
+  
+  
+  a:link{
+    color:rgb(222, 4, 255);
+  }
+  
+  a:visited{
+    color:pink
+  }
+  
+  h1 + ul {
+    list-style-type: none;
+  }
+  footer {
+    color: white;
+    border:1px solid black;
+    text-align: center;
+    grid-area: footer;
+    background: #0b104e;
     padding: 10px;
+    margin:10px;
+  }
+  @media (max-width: 500px){
+    body{
+    grid-template-areas:
+    'header header'
+    'main main'
+    'aside footer';
     }
+  
+  }
+  
+  
+  

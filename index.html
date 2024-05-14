@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>People Search</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Reg Database Tool</title>
+    <link rel="stylesheet" href="mystyles.css">
+    <script type="module" src="peopleSearch.js"></script>
 </head>
 <body id="container">
     <header>
-        <h1>&emsp; People Search</h1>
+        <h1>&emsp;People Search</h1>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">People search</a>&emsp;<a href="search-vehicles.html">Vehicle search</a>&emsp;<a href="add-vehicle.html">Add a vehicle</a></li>
+                <li><a href="index.html">People search</a>&emsp;<a href="vehicle-search.html">Vehicle search</a>&emsp;<a href="add-vehicle.html">Add a vehicle</a></li>
             </ul>
         </nav>
     </header>
@@ -25,11 +26,14 @@
             <hr color="white">
             <button type="submit">Submit</button>
         </form>
-        <div id="results"></div>
+        <div class="showData" id="results"></div>
+        <div id="message"></div>
     </main>
+    <aside>
+        <img width=100 height = 100 src="car.webp" alt="blue car"></img>
+    </aside>
     <footer>
-        <p>hello</p>
+        <p>PSYMM14 COMP1004 CW</p>
     </footer>
-    <script src="script.js" type="module"></script>
 </body>
 </html>
